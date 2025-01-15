@@ -110,8 +110,8 @@ struct HomeView: View {
                     PollCard(
                         title: "Trending Polls",
                         subtitle: "Top 3 most voted polls",
-                        backgroundColor: LinearGradient(colors: [Color.red, Color.orange], 
-                            startPoint: .topLeading, 
+                        backgroundColor: LinearGradient(colors: [Color.red, Color.orange],
+                            startPoint: .topLeading,
                             endPoint: .bottomTrailing),
                         iconName: "flame.fill"
                     )
@@ -123,8 +123,8 @@ struct HomeView: View {
                     PollCard(
                         title: "All Polls",
                         subtitle: "View all available polls",
-                        backgroundColor: LinearGradient(colors: [Color.blue, Color.purple], 
-                            startPoint: .topLeading, 
+                        backgroundColor: LinearGradient(colors: [Color.blue, Color.purple],
+                            startPoint: .topLeading,
                             endPoint: .bottomTrailing),
                         iconName: "list.bullet.circle.fill"
                     )

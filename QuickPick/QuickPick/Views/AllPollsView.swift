@@ -3,22 +3,32 @@ import SwiftUI
 struct AllPollsView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var vm = HomeViewModel()
+    @State private var selectedPollId: String? = nil
     
     var body: some View {
         NavigationView {
             List(vm.polls) { poll in
                 VStack(alignment: .leading, spacing: 10) {
-                    Text(poll.name)
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .padding(.vertical, 5)
-                    
                     HStack {
+                        Text(poll.name)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                        
+                        Spacer()
+                        
                         Image(systemName: "chart.bar.xaxis")
                             .foregroundColor(.white)
-                        Text("Total Votes: \(poll.totalCount)")
+                        Text("\(poll.totalCount) votes")
                             .foregroundColor(.white.opacity(0.8))
+                        
+                        if let updatedAt = poll.updatedAt {
+                            Image(systemName: "clock.fill")
+                                .foregroundColor(.white)
+                            Text(updatedAt, style: .relative)
+                                .foregroundColor(.white.opacity(0.8))
+                        }
                     }
+                    .padding(.vertical, 5)
                     
                     PollChartView(options: poll.options)
                         .frame(height: 160)
@@ -55,7 +65,7 @@ struct AllPollsView: View {
             }
             .onAppear {
                 Task {
-                    await vm.listenToLivePolls()  // You might want to create a new function to fetch all polls
+                    await vm.listenToLivePolls()
                 }
             }
         }

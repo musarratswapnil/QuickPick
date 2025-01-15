@@ -12,7 +12,8 @@ import SwiftUI
 struct AllPollsView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var vm = HomeViewModel()
-    
+    @State private var selectedPollId: String? = nil
+
     var body: some View {
         NavigationView {
             List(vm.polls) { poll in
@@ -37,8 +38,7 @@ struct AllPollsView: View {
                 .cornerRadius(10)
                 .listRowBackground(Color.black)
                 .onTapGesture {
-                    vm.modalPollId = poll.id
-                    dismiss()
+                    selectedPollId = poll.id // Correctly pass the poll ID
                 }
             }
             .listStyle(.plain)
@@ -64,13 +64,15 @@ struct AllPollsView: View {
             }
             .onAppear {
                 Task {
-                    await vm.listenToLivePolls()  // You might want to create a new function to fetch all polls
+                    await vm.listenToLivePolls()
                 }
             }
         }
+        // Open PollView in a sheet
+        .sheet(item: $selectedPollId) { id in
+            NavigationStack {
+                PollView(vm: PollViewModel(pollId: id))
+            }
+        }
     }
-}
-
-#Preview {
-    AllPollsView()
 }

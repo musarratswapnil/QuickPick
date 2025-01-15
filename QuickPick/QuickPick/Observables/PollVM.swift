@@ -23,6 +23,9 @@ class PollViewModel {
     init(pollId: String, poll: Poll? = nil) {
         self.pollId = pollId
         self.poll = poll
+        Task {
+            await listenToPoll()  // Start listening to poll updates when initialized
+        }
     }
     
     @MainActor

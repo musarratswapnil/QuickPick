@@ -15,26 +15,24 @@ public struct PollCard: View {
     let iconName: String
     
     public var body: some View {
-        VStack(alignment: .leading, spacing: 8) {
+        VStack(alignment: .leading, spacing: 10) {
             HStack {
-                Image(systemName: iconName)
-                    .font(.title)
-                    .foregroundColor(.white)
-                
-                VStack(alignment: .leading) {
+                VStack(alignment: .leading, spacing: 5) {
                     Text(title)
                         .font(.title2)
                         .bold()
                         .foregroundColor(.white)
+                    
                     Text(subtitle)
                         .font(.subheadline)
-                        .foregroundColor(.white.opacity(0.9))
+                        .foregroundColor(.white)
                 }
                 
                 Spacer()
                 
-                Image(systemName: "chevron.right")
-                    .foregroundColor(.white.opacity(0.7))
+                Image(systemName: iconName)
+                    .font(.system(size: 30))
+                    .foregroundColor(.white)
             }
         }
         .padding()

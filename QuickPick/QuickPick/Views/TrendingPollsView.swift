@@ -5,16 +5,14 @@
 //  Created by Nahian Zarif on 16/1/25.
 //
 
-import Foundation
-
 import SwiftUI
 
 struct TrendingPollsView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var vm = HomeViewModel()
+    @State private var selectedPollId: String? = nil
     
     var trendingPolls: [Poll] {
-        // Convert ArraySlice to Array
         Array(vm.polls.sorted { $0.totalCount > $1.totalCount }.prefix(3))
     }
     
@@ -44,8 +42,7 @@ struct TrendingPollsView: View {
                 .cornerRadius(10)
                 .listRowBackground(Color.black)
                 .onTapGesture {
-                    vm.modalPollId = poll.id
-                    dismiss()
+                    selectedPollId = poll.id
                 }
             }
             .listStyle(.plain)
@@ -73,6 +70,11 @@ struct TrendingPollsView: View {
                 Task {
                     await vm.listenToLivePolls()
                 }
+            }
+        }
+        .sheet(item: $selectedPollId) { pollId in
+            NavigationStack {
+                PollView(vm: PollViewModel(pollId: pollId))
             }
         }
     }
