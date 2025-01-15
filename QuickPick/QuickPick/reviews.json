@@ -1,0 +1,72 @@
+[
+  {
+    "id": "123e4567-e89b-12d3-a456-426614174000",
+    "username": "JohnDoe",
+    "rating": 5,
+    "reviewText": "Fantastic app! It’s intuitive and works perfectly.",
+    "date": "2025-01-10T12:00:00Z"
+  },
+  {
+    "id": "987e6543-a21b-32c3-d654-986754321000",
+    "username": "JaneSmith",
+    "rating": 4,
+    "reviewText": "The app is great, but I would like more customization options.",
+    "date": "2025-01-09T08:30:00Z"
+  },
+  {
+    "id": "654e9873-a89b-45c3-d756-256987654321",
+    "username": "User123",
+    "rating": 3,
+    "reviewText": "Good app, but there are occasional crashes.",
+    "date": "2025-01-08T15:45:00Z"
+  },
+  {
+    "id": "223f4567-e34c-78d3-a423-426614170987",
+    "username": "HappyUser",
+    "rating": 5,
+    "reviewText": "Love this app! It’s my go-to tool every day.",
+    "date": "2025-01-07T10:20:00Z"
+  },
+  {
+    "id": "456e7890-e12c-34f3-b456-876543210987",
+    "username": "TechGeek",
+    "rating": 4,
+    "reviewText": "Great features, but the UI could be more modern.",
+    "date": "2025-01-06T11:15:00Z"
+  },
+  {
+    "id": "789e1234-f56a-78b9-d432-543216789000",
+    "username": "Coder101",
+    "rating": 5,
+    "reviewText": "As a developer, I appreciate how seamless this app is. Well done!",
+    "date": "2025-01-05T16:50:00Z"
+  },
+  {
+    "id": "654a3210-c89d-12f3-b234-654789321000",
+    "username": "SamTheMan",
+    "rating": 2,
+    "reviewText": "Not bad, but it’s missing key features that I need.",
+    "date": "2025-01-04T13:40:00Z"
+  },
+  {
+    "id": "765e4321-b43a-65c9-d123-543210987654",
+    "username": "ReviewerPro",
+    "rating": 4,
+    "reviewText": "Nice app, but a bit slow on older devices.",
+    "date": "2025-01-03T18:25:00Z"
+  },
+  {
+    "id": "876f5432-c21d-54b8-a234-765432109876",
+    "username": "CasualUser",
+    "rating": 3,
+    "reviewText": "It’s okay, but there are better apps out there.",
+    "date": "2025-01-02T14:10:00Z"
+  },
+  {
+    "id": "987f6543-a32e-78d9-c123-654321098765",
+    "username": "AppFanatic",
+    "rating": 5,
+    "reviewText": "This app is a game-changer! Highly recommended.",
+    "date": "2025-01-01T12:00:00Z"
+  }
+]
