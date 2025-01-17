@@ -19,43 +19,43 @@ QuickPick is an iOS application designed for creating and managing live polls. I
 
 ## Sign-Up Screen
 Allows new users to create an account by entering their email, username, password, and confirming their password. Features a sleek UI with a gradient design and secure password visibility toggles.
-<img src="screenshot/1.jpg" alt="SignUp Screenshot" height="300" width="150"/>
+<img src="Screenshot/1.jpg" alt="SignUp Screenshot" height="300" width="150"/>
 
 ## Log-In Screen
 Users can log in with their credentials:
-<img src="screenshot/2.jpg" alt="Login Screenshot" height="300" width="150"/>
+<img src="Screenshot/2.jpg" alt="Login Screenshot" height="300" width="150"/>
 
 ## Home Screen Screen
 The central hub displaying options to join polls, view the latest polls, check trending polls, explore all polls, or create a new poll. Each section has colorful, visually distinct cards for easy navigation.
-<img src="screenshot/3.jpg" alt="Home Screen Screenshot" height="300" width="150"/>
+<img src="Screenshot/3.jpg" alt="Home Screen Screenshot" height="300" width="150"/>
 
 ## Latest Polls Screen
  Displays the most recent polls, including details like the total number of votes, time left for the poll to end, and visually appealing donut charts for results.
-<img src="screenshot/4.jpg" alt="Latest Polls Screenshot" height="300" width="150"/>
+<img src="Screenshot/4.jpg" alt="Latest Polls Screenshot" height="300" width="150"/>
 
 ## Trending Polls Screen
 Highlights the top polls based on popularity and vote count. Each poll features a title, vote breakdown, and a chart for data visualization.
-<img src="screenshot/5.jpg" alt="Trending Polls Screenshot" height="300" width="150"/>
+<img src="Screenshot/5.jpg" alt="Trending Polls Screenshot" height="300" width="150"/>
 
 ## All Polls Screen
 A complete list of available polls, with detailed vote counts and result charts for each option.
-<img src="screenshot/6.jpg" alt="All Polls Screenshot" height="300" width="150"/>
+<img src="Screenshot/6.jpg" alt="All Polls Screenshot" height="300" width="150"/>
 
 ## Create Poll Screen
 A streamlined interface for users to create their own polls. Users can input a poll name, add 2-4 options, and submit the poll for participation.
-<img src="screenshot/7.jpg" alt="Create Poll Screenshot" height="300" width="150"/>
+<img src="Screenshot/7.jpg" alt="Create Poll Screenshot" height="300" width="150"/>
 
 ## Poll Details Screen
  Displays detailed information about a specific poll, including the poll ID, update time, total vote count, and a detailed donut chart with vote breakdown by option.
-<img src="screenshot/12.jpg" alt="Poll Details Screenshot" height="300" width="150" /> <img src="screenshot/11.jpg" alt="Trending Poll Screenshot" height="300" width="150" />
+<img src="Screenshot/12.jpg" alt="Poll Details Screenshot" height="300" width="150" /> <img src="screenshot/11.jpg" alt="Trending Poll Screenshot" height="300" width="150" />
 
 ## Text Settings Screen
 Allows users to customize text size, font style, and color in the app. Includes a real-time preview to show how the selected settings will appear.
-<img src="screenshot/8.jpg" alt="Reviews Screenshot" height="300" width="150"/>
+<img src="Screenshot/8.jpg" alt="Reviews Screenshot" height="300" width="150"/>
 
 ## Logout Confirmation Dialog
 A modal dialog appears asking for confirmation when a user attempts to log out, offering options to cancel or proceed.
-<img src="screenshot/10.jpg" alt="Trending Poll Screenshot" height="300" width="150"/>
+<img src="Screenshot/10.jpg" alt="Trending Poll Screenshot" height="300" width="150"/>
 
 ---
 
