@@ -27,7 +27,7 @@ struct CreatePollView: View {
                             .withCustomStyle()
                             .autocorrectionDisabled()
                             .textInputAutocapitalization(.never)
-
+                        
                         Button("Submit") {
                             Task { await vm.createNewPoll() }
                         }

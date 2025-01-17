@@ -29,6 +29,7 @@ struct HomeView: View {
     @State private var showCreatePoll = false
     @State private var showAllPolls = false
     @State private var showTrendingPolls = false
+    @State private var showJoinPoll = false
     private let coordinator = HomeViewCoordinator()
     @Binding var isLoggedIn: Bool
     @Binding var email: String
@@ -47,9 +48,7 @@ struct HomeView: View {
                         iconName: "person.3.fill"
                     )
                     .onTapGesture {
-                        // Handle Join Poll Logic
-                        // Optionally show a TextField for poll ID here
-                        Task { await vm.joinExistingPoll() }
+                        showJoinPoll = true
                     }
 
                     // Latest Live Polls Card
@@ -63,47 +62,7 @@ struct HomeView: View {
                         showLivePolls = true
                     }
                     .sheet(isPresented: $showLivePolls) {
-                        NavigationView {
-                            List(vm.polls) { poll in
-                                VStack(alignment: .leading, spacing: 10) {
-                                    Text(poll.name)
-                                        .font(.headline)
-                                        .foregroundColor(.white)
-                                        .padding(.vertical, 5)
-                                    
-                                    HStack {
-                                        Image(systemName: "chart.bar.xaxis")
-                                            .foregroundColor(.white)
-                                        Text("Total Votes: \(poll.totalCount)")
-                                            .foregroundColor(.white.opacity(0.8))
-                                    }
-                                    
-                                    PollChartView(options: poll.options)
-                                        .frame(height: 160)
-                                }
-                                .padding()
-                                .background(Color.gray.opacity(0.2))
-                                .cornerRadius(10)
-                                .listRowBackground(Color.black)
-                                .onTapGesture {
-                                    vm.modalPollId = poll.id
-                                    showLivePolls = false
-                                }
-                            }
-                            .listStyle(.plain)
-                            .scrollContentBackground(.hidden)
-                            .background(Color.black)
-                            .navigationTitle("Live Polls")
-                            .navigationBarTitleDisplayMode(.inline)
-                            .toolbarBackground(Color.black, for: .navigationBar)
-                            .toolbarBackground(.visible, for: .navigationBar)
-                            .toolbarColorScheme(.dark, for: .navigationBar)
-                            .onAppear {
-                                Task {
-                                    await vm.listenToLivePolls()
-                                }
-                            }
-                        }
+                        LatestLivePollsView(vm: vm)
                     }
 
                     // Trending Polls Card
@@ -155,17 +114,17 @@ struct HomeView: View {
             .toolbarBackground(.visible, for: .navigationBar)
             .toolbarColorScheme(.dark, for: .navigationBar)
             .toolbar {
-                ToolbarItem(placement: .navigationBarLeading) {
-                    Button(action: {
-                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
-                    }) {
-                        HStack {
-                            Image(systemName: "chevron.left")
-                            Text("Back")
-                        }
-                        .foregroundColor(.red)
-                    }
-                }
+//                ToolbarItem(placement: .navigationBarLeading) {
+//                    Button(action: {
+//                        UIApplication.shared.perform(#selector(NSXPCConnection.suspend))
+//                    }) {
+//                        HStack {
+//                            Image(systemName: "chevron.left")
+//                            Text("Back")
+//                        }
+//                        .foregroundColor(.red)
+//                    }
+//                }
 
                 ToolbarItem(placement: .navigationBarTrailing) {
                     HStack(spacing: 16) {
@@ -201,13 +160,18 @@ struct HomeView: View {
                     handleLogout()
                 }
             } message: {
-                Text("Are you sure you want to logout?")
-                    .withCustomStyle()
+                Text("Are you sure you want to log out from QuickPick?")
+                    .font(.body)
             }
             .alert("Error", isPresented: .constant(vm.error != nil)) {
+                Button("OK", role: .cancel) { vm.error = nil }
             } message: {
-                Text(vm.error ?? "an error occurred")
-                    .withCustomStyle()
+                VStack(alignment: .leading, spacing: 8) {
+                    Text("Something went wrong")
+                        .font(.headline)
+                    Text(vm.error ?? "An unexpected error occurred. Please try again.")
+                        .font(.body)
+                }
             }
             .sheet(item: $vm.modalPollId) { id in
                 NavigationStack {
@@ -228,6 +192,9 @@ struct HomeView: View {
             }
             .sheet(isPresented: $showTrendingPolls) {
                 TrendingPollsView()
+            }
+            .sheet(isPresented: $showJoinPoll) {
+                JoinPollView()
             }
         }
         .navigationViewStyle(StackNavigationViewStyle())

@@ -12,6 +12,17 @@ struct PollChartView: View {
     
     let options: [Option]
     
+    // Define different colors for the dots
+    private let dotColors: [Color] = [
+        .blue,
+        .green,
+        .orange,
+        .purple,
+        .pink,
+        .yellow,
+        .cyan
+    ]
+    
     var body: some View {
         Chart {
             ForEach(options) { option in
@@ -22,6 +33,19 @@ struct PollChartView: View {
                 )
                 .cornerRadius(5)
                 .foregroundStyle(by: .value("Name", option.name))
+            }
+        }
+        .chartLegend(position: .bottom) {
+            HStack {
+                ForEach(Array(options.enumerated()), id: \.element.id) { index, option in
+                    HStack {
+                        Circle()
+                            .fill(dotColors[index % dotColors.count]) // Different color for each dot
+                            .frame(width: 10, height: 10)
+                        Text(option.name)
+                            .foregroundColor(.red)
+                    }
+                }
             }
         }
     }

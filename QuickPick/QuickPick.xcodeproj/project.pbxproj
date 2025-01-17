@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4D1ED27C2D389CA80056421D /* LatestLivePollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ED27B2D389CA80056421D /* LatestLivePollsView.swift */; };
+		4D1ED27E2D38A1520056421D /* JoinPollsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D1ED27D2D38A1520056421D /* JoinPollsView.swift */; };
 		4D20CDA42D27A81B00415B34 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4D20CDA32D27A81B00415B34 /* GoogleService-Info.plist */; };
 		4D20CDA62D27E12000415B34 /* PollChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D20CDA52D27E12000415B34 /* PollChartView.swift */; };
 		4D20CDA82D2808AD00415B34 /* PollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D20CDA72D2808AD00415B34 /* PollView.swift */; };
@@ -113,6 +115,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		4D1ED27B2D389CA80056421D /* LatestLivePollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LatestLivePollsView.swift; sourceTree = "<group>"; };
+		4D1ED27D2D38A1520056421D /* JoinPollsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinPollsView.swift; sourceTree = "<group>"; };
 		4D20CDA32D27A81B00415B34 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "../../../../../Downloads/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		4D20CDA52D27E12000415B34 /* PollChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollChartView.swift; sourceTree = "<group>"; };
 		4D20CDA72D2808AD00415B34 /* PollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PollView.swift; sourceTree = "<group>"; };
@@ -316,6 +320,8 @@
 				4DB862632D383B1C00008079 /* CreatePollView.swift */,
 				4DB862652D383CAC00008079 /* AllPolls.swift */,
 				4DB862692D38405200008079 /* TrendingPollsView.swift */,
+				4D1ED27B2D389CA80056421D /* LatestLivePollsView.swift */,
+				4D1ED27D2D38A1520056421D /* JoinPollsView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -553,6 +559,7 @@
 				4DBC1E502D22DE1C00CF2849 /* ContentView.swift in Sources */,
 				4DB862582D375C1A00008079 /* TextSettingsView.swift in Sources */,
 				4D20CDAA2D2808CA00415B34 /* PollVM.swift in Sources */,
+				4D1ED27E2D38A1520056421D /* JoinPollsView.swift in Sources */,
 				4DB862622D38330D00008079 /* PollCard.swift in Sources */,
 				4DBC1EB12D266EE300CF2849 /* Option.swift in Sources */,
 				4DB862602D3812DB00008079 /* SignUpView.swift in Sources */,
@@ -566,6 +573,7 @@
 				4DBC1EB92D2676D900CF2849 /* HomeVM.swift in Sources */,
 				4D20CDA62D27E12000415B34 /* PollChartView.swift in Sources */,
 				4DBC1EB62D26744D00CF2849 /* HomeView.swift in Sources */,
+				4D1ED27C2D389CA80056421D /* LatestLivePollsView.swift in Sources */,
 				4DBC1E4E2D22DE1C00CF2849 /* QuickPickApp.swift in Sources */,
 				4DB8625E2D3811C700008079 /* LoginView.swift in Sources */,
 				4D20CDD52D29952800415B34 /* LivePollsWidgetAttributes.swift in Sources */,

@@ -13,36 +13,61 @@ struct AllPollsView: View {
     @Environment(\.dismiss) private var dismiss
     @Bindable var vm = HomeViewModel()
     @State private var selectedPollId: String? = nil
+    @State private var searchText = ""
+    
+    private var filteredPolls: [Poll] {
+        if searchText.isEmpty {
+            return vm.polls
+        } else {
+            return vm.polls.filter { poll in
+                poll.name.localizedCaseInsensitiveContains(searchText)
+            }
+        }
+    }
 
     var body: some View {
         NavigationView {
-            List(vm.polls) { poll in
-                VStack(alignment: .leading, spacing: 10) {
-                    Text(poll.name)
-                        .font(.headline)
+            VStack {
+                HStack {
+                    Image(systemName: "magnifyingglass")
+                        .foregroundColor(.gray)
+                    TextField("Search polls...", text: $searchText)
                         .foregroundColor(.white)
-                        .padding(.vertical, 5)
-                    
-                    HStack {
-                        Image(systemName: "chart.bar.xaxis")
-                            .foregroundColor(.white)
-                        Text("Total Votes: \(poll.totalCount)")
-                            .foregroundColor(.white.opacity(0.8))
-                    }
-                    
-                    PollChartView(options: poll.options)
-                        .frame(height: 160)
+                        .withCustomTextStyle()
                 }
-                .padding()
+                .padding(8)
                 .background(Color.gray.opacity(0.2))
                 .cornerRadius(10)
-                .listRowBackground(Color.black)
-                .onTapGesture {
-                    selectedPollId = poll.id // Correctly pass the poll ID
+                .padding(.horizontal)
+                
+                List(filteredPolls) { poll in
+                    VStack(alignment: .leading, spacing: 10) {
+                        Text(poll.name)
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .padding(.vertical, 5)
+                        
+                        HStack {
+                            Image(systemName: "chart.bar.xaxis")
+                                .foregroundColor(.white)
+                            Text("Total Votes: \(poll.totalCount)")
+                                .foregroundColor(.white.opacity(0.8))
+                        }
+                        
+                        PollChartView(options: poll.options)
+                            .frame(height: 160)
+                    }
+                    .padding()
+                    .background(Color.gray.opacity(0.2))
+                    .cornerRadius(10)
+                    .listRowBackground(Color.black)
+                    .onTapGesture {
+                        selectedPollId = poll.id
+                    }
                 }
+                .listStyle(.plain)
+                .scrollContentBackground(.hidden)
             }
-            .listStyle(.plain)
-            .scrollContentBackground(.hidden)
             .background(Color.black)
             .navigationTitle("All Polls")
             .navigationBarTitleDisplayMode(.inline)
@@ -68,7 +93,6 @@ struct AllPollsView: View {
                 }
             }
         }
-        // Open PollView in a sheet
         .sheet(item: $selectedPollId) { id in
             NavigationStack {
                 PollView(vm: PollViewModel(pollId: id))
